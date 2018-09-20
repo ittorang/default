@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >   
+<mapper namespace="com.yuyue.dao">
+<insert id="addUser" parameterType="com.yuyue.entity.User" >
+	insert into user (
+	
+	<trim suffixOverrides="," >
+	<if test="userName!=''">
+		userName,
+	</if>
+	<if test="passWord!=''">
+		passWord,
+	</if>
+	<if test="selfie!=''">
+		selfie,
+	</if>
+	)VALUES
+	<if test="userName!=''">
+		#{userName,jdbcType=VARCHAR},
+	</if>
+	<if test="passWord!=''">
+		#{passWord,jdbcType=VARCHAR},
+	</if>
+	<if test="selfie!=''">
+		#{selfie,selfie=VARCHAR},
+	</if>
+	
+	</trim>	
+</insert>
+
+</mapper>
